@@ -47,7 +47,7 @@ pub struct Chip8 {
     screen: Screen,
     draw_flag: bool,
     event_pump: EventPump,
-    keyboard: [bool; 16]
+    keyboard: [bool; 16],
 }
 
 
@@ -71,7 +71,7 @@ impl Chip8 {
             screen: Screen::new(&sdl_context),
             draw_flag: false,
             event_pump: sdl_context.event_pump().unwrap(),
-            keyboard: [false; 16]
+            keyboard: [false; 16],
         }
     }
 
@@ -429,6 +429,7 @@ impl Chip8 {
 }
 
 
+#[allow(non_snake_case)]
 #[test]
 fn test_CLS() {
     let mut chip8 = Chip8::new();
@@ -448,6 +449,7 @@ fn test_CLS() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_CALL_RET() {
     let mut chip8 = Chip8::new();
 
@@ -465,6 +467,7 @@ fn test_CALL_RET() {
 
 }
 #[test]
+#[allow(non_snake_case)]
 fn test_JP() {
     let mut chip8 = Chip8::new();
     chip8.opcode = Opcode::JP(0x200 + 2);
@@ -474,6 +477,7 @@ fn test_JP() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SE_true() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 1;
@@ -485,6 +489,7 @@ fn test_SE_true() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SE_false() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 1;
@@ -496,6 +501,7 @@ fn test_SE_false() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SNE_true() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 1;
@@ -507,6 +513,7 @@ fn test_SNE_true() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SNE_false() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 1;
@@ -518,6 +525,7 @@ fn test_SNE_false() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SE_V() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 1;
@@ -530,6 +538,7 @@ fn test_SE_V() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SE_V_false() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0;
@@ -542,6 +551,7 @@ fn test_SE_V_false() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD() {
     let mut chip8 = Chip8::new();
     
@@ -552,6 +562,7 @@ fn test_LD() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_ADD() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 13;
@@ -563,6 +574,7 @@ fn test_ADD() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_ADD_overflow() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 15;
@@ -574,6 +586,7 @@ fn test_ADD_overflow() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_V() {
     let mut chip8 = Chip8::new();
     chip8.V[1] = 0x6a;
@@ -585,6 +598,7 @@ fn test_LD_V() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_OR() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0b00001111;
@@ -597,6 +611,7 @@ fn test_OR() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_AND() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0b00001111;
@@ -609,6 +624,7 @@ fn test_AND() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_XOR() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0b00001111;
@@ -621,6 +637,7 @@ fn test_XOR() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_ADD_V() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 5;
@@ -634,6 +651,7 @@ fn test_ADD_V() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_ADD_V_overflow() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 5;
@@ -647,6 +665,7 @@ fn test_ADD_V_overflow() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SUB() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 12;
@@ -660,6 +679,7 @@ fn test_SUB() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SUB_negative() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 5;
@@ -673,6 +693,7 @@ fn test_SUB_negative() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SHR() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0b01001100;
@@ -685,6 +706,7 @@ fn test_SHR() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SHR_loss() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0b01001101;
@@ -697,6 +719,7 @@ fn test_SHR_loss() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SUBN() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 5;
@@ -710,6 +733,7 @@ fn test_SUBN() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SUBN_overflow() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 12;
@@ -723,6 +747,7 @@ fn test_SUBN_overflow() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SHL() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0b01001100;
@@ -735,6 +760,7 @@ fn test_SHL() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SHL_loss() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0b11001100;
@@ -747,6 +773,7 @@ fn test_SHL_loss() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SNE_V() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0x3b;
@@ -759,6 +786,7 @@ fn test_SNE_V() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_SNE_V_false() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0x3b;
@@ -771,6 +799,7 @@ fn test_SNE_V_false() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_I() {
     let mut chip8 = Chip8::new();
     
@@ -781,6 +810,7 @@ fn test_LD_I() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_JP_V() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 20;
@@ -792,6 +822,7 @@ fn test_JP_V() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_RND() {
     let mut chip8 = Chip8::new();
 
@@ -802,6 +833,7 @@ fn test_RND() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_DRW() {
     let mut chip8 = Chip8::new();
 
@@ -839,6 +871,7 @@ fn test_DRW() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_V_DT() {
     let mut chip8 = Chip8::new();
     chip8.delay_timer = 12;
@@ -850,6 +883,7 @@ fn test_LD_V_DT() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_DT_V() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 0xfa;
@@ -861,6 +895,7 @@ fn test_LD_DT_V() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_ST() {
     let mut chip8 = Chip8::new();
     chip8.V[0] = 42;
@@ -872,6 +907,7 @@ fn test_LD_ST() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_ADD_I() {
     let mut chip8 = Chip8::new();
     chip8.I = 17;
@@ -884,6 +920,7 @@ fn test_ADD_I() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_ADD_I_overflow() {
     let mut chip8 = Chip8::new();
     chip8.I = 17;
@@ -896,6 +933,7 @@ fn test_ADD_I_overflow() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_F() {
     let mut chip8 = Chip8::new();
 
@@ -909,6 +947,7 @@ fn test_LD_F() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_B() {
     let mut chip8 = Chip8::new();
     chip8.opcode = Opcode::LD(0, 0xF3);
@@ -923,6 +962,7 @@ fn test_LD_B() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_I_V() {
     let mut chip8 = Chip8::new();
     chip8.V = [0,1,6,4,3,6,7,3,2,7,5,4,4,6,3,2];
@@ -937,6 +977,7 @@ fn test_LD_I_V() {
 }
 
 #[test]
+#[allow(non_snake_case)]
 fn test_LD_V_I() {
     let mut chip8 = Chip8::new();
     chip8.I = 0x200;
