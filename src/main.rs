@@ -2,7 +2,7 @@ use chip8::chip8::Chip8;
 
 fn main() {
     let mut emu = Chip8::new();
-    emu.load_game("tetris.rom");
+    emu.load_game("roms/tetris.rom");
 
     loop {
         emu.handle_events();
